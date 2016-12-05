@@ -1,7 +1,11 @@
 myApp.controller('PeopleController', ['$http', function($http) {
     var self = this;
     self.people = [];
-    self.newPerson = {};
+    self.newPerson = {
+      name: "",
+      location: "",
+      nicenessLevel: 0
+    };
 
     // Start app
     getData();
@@ -26,6 +30,7 @@ myApp.controller('PeopleController', ['$http', function($http) {
           // getData();
           self.people.push(response.data);
           console.log(response);
+          self.newPerson = {};
         },
         function(response) {
           console.log('post error:', response);

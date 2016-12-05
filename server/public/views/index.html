@@ -18,6 +18,12 @@
                 <input type="text" ng-model="peeps.newPerson.name" id="name" placeholder="Name" />
                 <label for="location">Location: </label>
                 <input type="text" ng-model="peeps.newPerson.location" id="location" placeholder="Location" />
+                <label for="birthDate">Birth Date</label>
+                <input type="text" ng-model="peeps.newPerson.birthDate" id="birthDate" placeholder="mm-dd-yyyyy">
+                <label for="nicenessLevel">Niceness Level</label>
+                <select ng-model="peeps.newPerson.nicenessLevel" id="nicenessLevel">
+                  <option ng-repeat="i in [1,2,3,4,5]">{{i}}</option>
+                </select>
                 <button class="btn btn-primary" ng-click="peeps.addPerson()">Add Person</button>
             </form>
             </div>
@@ -26,8 +32,10 @@
         <div class="row">
           <div class="col-md-12">
               <div ng-repeat="person in peeps.people" class="well col-md-3">
-                <p>{{person.name}}</p>
-                <p>{{person.location}}</p>
+                <p><b>First Name:</b> {{person.name}}</p>
+                <p><b>Location:</b> {{person.location}}</p>
+                <p><b>Birth Date:</b> {{person.birthDate}}</p>
+                <p><b>Niceness Level:</b> {{person.nicenessLevel}}</p>
                 <button ng-click="peeps.updatePerson(person._id)" class="btn btn-default">Update</button>
                 <button ng-click="peeps.deletePerson(person._id)" class="btn btn-danger">Delete</button>
             </div>
